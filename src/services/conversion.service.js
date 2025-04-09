@@ -1,4 +1,5 @@
 const axios = require('axios')
+const InternalServerError = require('../errors/internalServerError')
 
 async function convertCurrency(from, to, amount) {
     const apiKey = process.env.API_KEY
@@ -13,8 +14,8 @@ async function convertCurrency(from, to, amount) {
             result: conversion_result,
             rate: conversion_rate
         }
-    } catch(error) {
-        throw new Error(`Erro ao obter taxa de câmbio da API: ${error}`)
+    } catch {
+        throw new InternalServerError('Erro ao buscar taxa de câmbio externa')
     }
 }
 

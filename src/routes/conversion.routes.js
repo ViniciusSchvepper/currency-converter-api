@@ -1,9 +1,9 @@
 const express = require('express');
 const router = express.Router();
 const { convert } = require('../controllers/conversion.controller');
+const authMiddleware = require('../middlewares/auth.middleware');
+const { validateConversionParams } = require('../validators/conversion.validator')
 
-// const { conversionValidator } = require('...') // pode habilitar depois
-
-router.get('/convert', convert);
+router.get('/convert', authMiddleware, validateConversionParams, convert);
 
 module.exports = router;

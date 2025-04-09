@@ -1,9 +1,9 @@
-const ApiError = require('./apiError');
+const ApiError = require('./apiError')
 
 class MethodNotAllowed extends ApiError {
   constructor(message = 'Method not allowed') {
-    super(405, message);
+    super(405, message)
   }
 }
 
-module.exports = MethodNotAllowed;
+module.exports = MethodNotAllowed

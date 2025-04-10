@@ -1,9 +1,9 @@
-const ApiError = require('./apiError');
+const ApiError = require('./apiError')
 
 class Forbidden extends ApiError {
   constructor(message = 'Forbidden') {
-    super(403, message);
+    super(403, message)
   }
 }
 
-module.exports = Forbidden;
+module.exports = Forbidden

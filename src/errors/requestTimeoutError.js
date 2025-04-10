@@ -1,9 +1,9 @@
-const ApiError = require('./apiError');
+const ApiError = require('./apiError')
 
 class RequestTimeout extends ApiError {
   constructor(message = 'Request timeout') {
-    super(408, message);
+    super(408, message)
   }
 }
 
-module.exports = RequestTimeout;
+module.exports = RequestTimeout

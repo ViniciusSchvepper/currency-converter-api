@@ -4,35 +4,31 @@ module.exports = {
   async up(queryInterface, Sequelize) {
     await queryInterface.createTable('request_logs', {
       id: {
-        allowNull: false,
+        type: Sequelize.INTEGER,
         autoIncrement: true,
         primaryKey: true,
-        type: Sequelize.INTEGER
-      },
-      from_currency: {
-        type: Sequelize.STRING(3),
         allowNull: false
       },
-      to_currency: {
-        type: Sequelize.STRING(3),
+      route: {
+        type: Sequelize.STRING,
         allowNull: false
       },
-      amount: {
-        type: Sequelize.FLOAT,
-        allowNull: false
+      request: {
+        type: Sequelize.JSON,
+        allowNull: true
       },
-      rate: {
-        type: Sequelize.FLOAT,
-        allowNull: false
+      response: {
+        type: Sequelize.JSON,
+        allowNull: true
       },
-      result: {
-        type: Sequelize.FLOAT,
+      status_code: {
+        type: Sequelize.INTEGER,
         allowNull: false
       },
       created_at: {
         type: Sequelize.DATE,
-        allowNull: false,
-        defaultValue: Sequelize.fn('NOW')
+        defaultValue: Sequelize.fn('NOW'),
+        allowNull: false
       }
     })
   },

@@ -38,7 +38,7 @@ async function checkAllModelsSync(db) {
   }
 
   // eslint-disable-next-line no-console
-  console.log('✅ Todas as models estão sincronizadas com suas tabelas.')
+  console.log('Todas as models estão sincronizadas com suas tabelas.')
 }
 
 module.exports = { checkAllModelsSync }

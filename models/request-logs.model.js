@@ -4,30 +4,26 @@ module.exports = (sequelize, DataTypes) => {
   const RequestLog = sequelize.define(
     'RequestLog',
     {
-      from_currency: {
-        type: DataTypes.STRING(3),
+      route: {
+        type: DataTypes.STRING,
         allowNull: false
       },
-      to_currency: {
-        type: DataTypes.STRING(3),
-        allowNull: false
+      request: {
+        type: DataTypes.JSON,
+        allowNull: true
       },
-      amount: {
-        type: DataTypes.FLOAT,
-        allowNull: false
+      response: {
+        type: DataTypes.JSON,
+        allowNull: true
       },
-      rate: {
-        type: DataTypes.FLOAT,
-        allowNull: false
-      },
-      result: {
-        type: DataTypes.FLOAT,
+      status_code: {
+        type: DataTypes.INTEGER,
         allowNull: false
       },
       created_at: {
         type: DataTypes.DATE,
-        allowNull: false,
-        defaultValue: DataTypes.NOW
+        defaultValue: DataTypes.NOW,
+        allowNull: false
       }
     },
     {

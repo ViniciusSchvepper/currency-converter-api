@@ -10,12 +10,14 @@ const limiter = rateLimit({
   standardHeaders: true,
   legacyHeaders: false,
 
-  handler: (req, res, next) => {
-    return next(
-      new TooManyRequestsError(
-        `Limite de requisições excedido. Tente novamente em ${windowMs / 1000} segundos.`
-      )
+  handler: (req, res) => {
+    const error = new TooManyRequestsError(
+      `Limite de requisições excedido. Tente novamente em ${windowMs / 1000} segundos.`
     )
+
+    return res.status(error.statusCode).json({
+      message: error.message
+    })
   }
 })
 

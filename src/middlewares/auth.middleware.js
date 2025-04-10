@@ -10,7 +10,7 @@ function authMiddleware(req, res, next) {
 
   if (token !== process.env.API_KEY) {
     return next(
-      new ForbiddenError(`Token '${req.headers.authorization}' inválido`)
+      new ForbiddenError(`Token '${req.headers.authorization}' inválido.`)
     )
   }
 

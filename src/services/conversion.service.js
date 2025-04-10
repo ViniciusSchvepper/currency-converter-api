@@ -14,8 +14,8 @@ async function convertCurrency(from, to, amount) {
       result: conversion_result,
       rate: conversion_rate
     }
+    // eslint-disable-next-line no-unused-vars
   } catch (err) {
-    console.error('Erro ao chamar API externa:', err.message)
     throw new InternalServerError('Erro ao buscar taxa de câmbio externa')
   }
 }
